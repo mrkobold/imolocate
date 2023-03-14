@@ -34,7 +34,7 @@ export const getConfig = (sideChain, pub, pvk, encrypted) => {
         seed: seed,
         privateKey: pvk,
         publicKey: pub, //generate pub from pvk
-        encrypted: encrypted != null ? !!encrypted : protocol === "http"
+        encrypted: encrypted !== null ? !!encrypted : protocol === "http"
     };
 
     if (protocol === "http" || protocol === "https") {
@@ -101,7 +101,7 @@ export const standardizeWithoutOwner = (record, layout, ownerColumnIndex) => {
 
     for (let i = 0; i < layout.length; i++) {
         if (i < record.length) {
-            if (ownerColumnIndex == null || i != ownerColumnIndex) {
+            if (ownerColumnIndex == null || i !== ownerColumnIndex) {
                 record[i] = convert(record[i], layout[i].type)
             } else {
                 record[i] = null;
@@ -195,13 +195,12 @@ const WeaveHelper = {
     standardizeRecord,
     standardizeWithoutOwner,
     addIntegritySignature,
-    WeaveAPI,
+    // WeaveAPI, // TODO: I dunno why, but if I decomment this, then I get Uncaught ReferenceError: Cannot access '__WEBPACK_DEFAULT_EXPORT__' before initialization
     Records,
     Record,
     Options,
     Filter,
-    FilterOp,
-    Order
+    FilterOp
 };
 
 export default WeaveHelper;
