@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import { useState} from 'react';
 import WeaveAPI from "../weaveapi/weaveapi";
+import { useStore } from '../zustandstore/zustandstore';
 
 const weaveApi = new WeaveAPI().create({});
 
 export default function CreateAccount() {
 
-    const [accountKeys, setAccountKeys] = useState([]);
     const [isCreated, setIsCreated] = useState(false);
+    const { pvk, pub, updatePvk } = useStore();
 
     const createAccount = () => {
         const keys = weaveApi.generateKeys();
-        setAccountKeys(keys);
+        updatePvk(keys[0]);
         setIsCreated(true);
     }
 
-
-
     return (
         <div>
-            {isCreated && <p>AccountKeys={JSON.stringify(accountKeys)}</p>}
+            {isCreated && <p>Store private key = {pvk}</p>}
             {!isCreated && <button onClick={createAccount}>Generate keypair!!</button>}
         </div>
      )

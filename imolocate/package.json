@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "elliptic": "^6.5.4",
     "java-random": "^0.4.0",
+    "react-redux": "^7.2.1",
     "crypto-js": "^4.1.1",
     "jsrsasign": "^10.5.12",
     "react": "^18.2.0",
