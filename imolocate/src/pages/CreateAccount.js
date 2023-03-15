@@ -14,8 +14,8 @@ export default function CreateAccount() {
     /** generate keys and register them in the local storage */
     const generateAndStoreKeys = () => {
         const keys = weaveApi.generateKeys();
-        updatePvk(keys[0]);
-        updatePub(keys[1]);
+        updatePub(keys[0]);
+        updatePvk(keys[1]);
         setIsCreated(true);
     }
 
