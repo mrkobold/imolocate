@@ -60,7 +60,7 @@ export default function CreateAccount() {
                 </label>
                 <br/>
 
-                <input type="submit" value="Post"/>
+                <input type="submit" value="Share Address"/>
             </form>
         </div>
      )
