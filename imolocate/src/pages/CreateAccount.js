@@ -3,7 +3,6 @@ import WeaveAPI from "../weaveapi/weaveapi";
 import { myStore } from '../zustandstore/myStore';
 import { Link } from 'react-router-dom';
 
-
 const weaveApi = new WeaveAPI().create({});
 
 export default function CreateAccount() {

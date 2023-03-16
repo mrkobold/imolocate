@@ -5,11 +5,13 @@ import WeaveAPI from "../weaveapi/weaveapi";
 
 export default function CreateAccount() {
 
+    const sideChain = "http://localhost:20001/8d2f73df4ce3b70a864c5382b4d2c455";
+    const organization = "imolocate";
+    const scopes = "imolocate";
+
     const [imobiliareUrl, setImobiliareUrl] = useState("");
     const [address, setAddress] = useState("");
     const {pvk, pub} = myStore((state) => ({pvk: state.pvk, pub: state.pub}));
-
-    const sideChain = "http://localhost:20001/8d2f73df4ce3b70a864c5382b4d2c455";
 
     const updateImobiliareUrl = (event) => {
         setImobiliareUrl(event.target.value);
@@ -36,7 +38,7 @@ export default function CreateAccount() {
         const pong = await nodeApi.ping();
         console.log("pong=" + JSON.stringify(pong));
 
-        const session = await nodeApi.login();
+        const session = await nodeApi.login(organization, pub, scopes);
         console.log("session=" + JSON.stringify(session));
     }
 
